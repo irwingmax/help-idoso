@@ -57,16 +57,16 @@ export class CadastroPage {
     this.arrayErros.length = 0;
     if (this.formulario.invalid){
       if(this.formulario.controls.nome.invalid ){
-        this.arrayErros.push("Campo Nome Invalido*")
+        this.arrayErros.push("Campo Nome Invalido")
       }
       if(this.formulario.controls.email.invalid ){
-        this.arrayErros.push("campo Email Invalido*")
+        this.arrayErros.push("campo Email Invalido")
       }
       if(this.formulario.controls.sexo.invalid ){
-        this.arrayErros.push("Campo Sexo invalido*")
+        this.arrayErros.push("Campo Sexo invalido")
       }
       if(this.formulario.controls.senha.invalid ){
-        this.arrayErros.push("Campo Sexo invalido*")
+        this.arrayErros.push("Campo Sexo invalido")
       }
     
     }
