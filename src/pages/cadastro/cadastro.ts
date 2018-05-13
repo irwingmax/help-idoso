@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Alert } from 'ionic-angular';
 import { modeloCadastro } from '../../model/modeloCadastro';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms"
+import { EnviocadastroProvider } from '../../providers/enviocadastro/enviocadastro';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the CadastroPage page.
  *
@@ -22,11 +24,16 @@ export class CadastroPage {
   senha: string;
   email: string;
   arrayErros: string[] = [""];
-  
+  alerta: Alert;
+  liberaEnvio: boolean; false;
+
 
   formulario: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, fb: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+             fb: FormBuilder, private cadastroProv: 
+             EnviocadastroProvider,private alertaCon: AlertController) {
+
     //validacao dos formulários
     this.formulario = fb.group({
       nome: ['',Validators.required],
@@ -44,6 +51,15 @@ export class CadastroPage {
   }
 
   enviaCadastro(){
+    let alertamsg = "";
+    this.alerta = this.alertaCon.create({
+      title: "Aviso",
+      subTitle: "Erro ao Cadastrar, contate o Administrador!",
+      buttons: [{
+        text: "Ok",
+        handler: () => {this.navCtrl.setRoot(HomePage)}
+      }]
+    });
     
     //cria um modelo dos dados a serem enviados
     let dados: modeloCadastro = {
@@ -68,8 +84,27 @@ export class CadastroPage {
       if(this.formulario.controls.senha.invalid ){
         this.arrayErros.push("Campo Sexo invalido")
       }
-    
+    this.liberaEnvio = false;
+    }else{this.liberaEnvio = true}
+      
+      
+    if(this.liberaEnvio){
+
+      this.cadastroProv.cadastro_node(dados).
+        finally(
+          () => {
+            this.alerta.setSubTitle(alertamsg);
+            this.alerta.present();
+          }
+        ).
+        subscribe(
+          //callback sucesso
+          () => alertamsg = "Cadastro Realizado com sucesso!",
+          //callback falha
+          () => alertamsg = "Não foi possível cadastrar, tente novamente mais tarde"
+          
+          
+        );
     }
-    console.log(dados);
   }
 }
