@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TipoAjudaPage } from '../tipo-ajuda/tipo-ajuda';
 
 /**
  * Generated class for the PerguntasPage page.
@@ -21,5 +22,9 @@ export class PerguntasPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntasPage');
   }
+
+  tipoAjudaCall() {
+    this.navCtrl.push(TipoAjudaPage);
+   }
 
 }
