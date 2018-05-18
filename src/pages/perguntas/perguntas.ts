@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PerguntasPage } from '../perguntas/perguntas';
 
 /**
- * Generated class for the LogarPage page.
+ * Generated class for the PerguntasPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +10,16 @@ import { PerguntasPage } from '../perguntas/perguntas';
 
 @IonicPage()
 @Component({
-  selector: 'page-logar',
-  templateUrl: 'logar.html',
+  selector: 'page-perguntas',
+  templateUrl: 'perguntas.html',
 })
-export class LogarPage {
+export class PerguntasPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LogarPage');
+    console.log('ionViewDidLoad PerguntasPage');
   }
-
-   perguntasCall() {
-    this.navCtrl.push(PerguntasPage);
-   }
 
 }

@@ -1,0 +1,63 @@
+page-perguntas {
+	.user-data{
+		margin: 0 auto;
+		width: auto;
+		height: 100px;
+		display:block;
+
+		.user{
+			width:auto;
+			height:100px;
+			display: inline-block;
+			text-align: center;
+			float:left;
+			font-size:16px;
+			margin-left:18px;
+			margin-top:7px;
+		}
+		.photo-user{
+			width:100px;
+			height:100px;
+			display: inline-block;
+			float:right;
+			margin-right:16px;
+		}
+	}
+
+	.questions{
+		position: absolute;
+		margin: auto;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 300px;
+		text-align: center;
+		margin-top:200px;
+		button{
+			color: #4B0082;
+			background: #fff;
+			margin-top:20px;
+			padding-top:30px;
+			padding-bottom:30px;
+			font-size:18px;
+		}
+	}
+
+	.edit-user{
+		bottom:0;
+		left:0;
+		position: absolute;
+		font-size:18px;
+		width:100%;
+		text-align:center;
+		.edit{
+			display:inline-block;
+		}
+		.logout{
+			display:inline-block;
+		}
+	}
+	
+}

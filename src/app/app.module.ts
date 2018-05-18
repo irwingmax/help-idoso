@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { LoginPage } from '../pages/login/login';
 import { LogarPage } from '../pages/logar/logar';
+import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { TipoAjudaPage } from '../pages/tipo-ajuda/tipo-ajuda';
 import { TipoAjudaCelularPage } from '../pages/tipo-ajuda-celular/tipo-ajuda-celular';
@@ -19,6 +20,7 @@ import { HomePage } from '../pages/home/home';
     HomePage,
     LoginPage,
     LogarPage,
+    PerguntasPage,
     CadastroPage,
     TipoAjudaPage,
     TipoAjudaCelularPage,
@@ -35,6 +37,7 @@ import { HomePage } from '../pages/home/home';
     HomePage,
     LoginPage,
     LogarPage,
+    PerguntasPage,
     CadastroPage,
     TipoAjudaPage,
     TipoAjudaCelularPage,
