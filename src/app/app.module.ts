@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { EnviocadastroProvider } from '../providers/enviocadastro/enviocadastro';
 import { HttpClientModule } from "@angular/common/http";
 import 'rxjs/add/operator/finally';
+import { ListaloginProvider } from '../providers/listalogin/listalogin';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import 'rxjs/add/operator/finally';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    EnviocadastroProvider
+    EnviocadastroProvider,
+    ListaloginProvider
   ]
 })
 export class AppModule {}
