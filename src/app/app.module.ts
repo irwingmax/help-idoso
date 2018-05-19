@@ -32,13 +32,8 @@ import { ListaloginProvider } from '../providers/listalogin/listalogin';
   ],
   imports: [
     BrowserModule,
-<<<<<<< HEAD
     IonicModule.forRoot(MyApp),
     HttpClientModule
-=======
-    IonicModule.forRoot(MyApp)
-
->>>>>>> c4e52a92ce802547b60c7a5f0bf25ba379bdcfe9
   ],
   bootstrap: [IonicApp],
   entryComponents: [

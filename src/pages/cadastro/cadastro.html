@@ -14,7 +14,6 @@
 
 
 <ion-content padding>
-<<<<<<< HEAD
     <form (ngSubmit)="enviaCadastro()" #form="ngForm" [formGroup]="formulario">
 
         <ion-item>
@@ -56,38 +55,4 @@
       </span>
 
       <button ion-button full (click)="form.ngSubmit.emit()">Cadastrar</button>
-=======
-		 <ion-item>
-		   <ion-label floating>Nome</ion-label>
-		   <ion-input type="text" value=""></ion-input>
-		 </ion-item>
-		 <ion-item>
-		   <ion-label floating>Sobrenome</ion-label>
-		   <ion-input type="text"></ion-input>
-		</ion-item>
-		<ion-item>
-		   <ion-label floating>Data</ion-label>
-		     <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
-		</ion-item>
-		<ion-item>
-		   	<ion-label>Gênero</ion-label>
-		    <ion-select [(ngModel)]="genero">
-		      <ion-option value="M">Masculino</ion-option>
-		      <ion-option value="F">Feminino</ion-option>
-		  	</ion-select>	
-		</ion-item>
-		<ion-item>
-		   <ion-label floating>Usuario</ion-label>
-		   <ion-input type="text" value=""></ion-input>
-		 </ion-item>
-		 <ion-item>
-		   <ion-label floating>Senha</ion-label>
-		   <ion-input type="password"></ion-input>
-		</ion-item>
-		<ion-item>
-		   <ion-label floating>Digite a senha novamente</ion-label>
-		   <ion-input type="password"></ion-input>
-		</ion-item>
-		<button ion-button full ><ion-icon name="person-add" class="teste-icone"></ion-icon> FINALIZAR CADASTRO </button>
->>>>>>> c4e52a92ce802547b60c7a5f0bf25ba379bdcfe9
 </ion-content>
