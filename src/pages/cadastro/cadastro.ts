@@ -4,12 +4,6 @@ import { modeloCadastro } from '../../model/modeloCadastro';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms"
 import { EnviocadastroProvider } from '../../providers/enviocadastro/enviocadastro';
 import { HomePage } from '../home/home';
-/**
- * Generated class for the CadastroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

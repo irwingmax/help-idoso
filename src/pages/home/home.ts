@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CadastroPage } from '../cadastro/cadastro';
+import { LogarPage } from '../logar/logar';
 
 @Component({
   selector: 'page-home',
@@ -14,6 +15,9 @@ export class HomePage {
 
 
   chamaCadastro(){
-    this.navCtrl.push(CadastroPage.name)
+    this.navCtrl.push(CadastroPage.name);
+  }
+  chamaLogar(){
+    this.navCtrl.push(LogarPage);
   }
 }

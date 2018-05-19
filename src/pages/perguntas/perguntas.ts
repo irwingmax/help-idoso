@@ -15,12 +15,15 @@ import { TipoAjudaPage } from '../tipo-ajuda/tipo-ajuda';
   templateUrl: 'perguntas.html',
 })
 export class PerguntasPage {
+  dados: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.dados = navParams.get("dados");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntasPage');
+    console.log(this.dados)
   }
 
   tipoAjudaCall() {
