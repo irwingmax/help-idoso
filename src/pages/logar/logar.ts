@@ -48,7 +48,7 @@ export class LogarPage {
       }else{
         this.vlogin = true;
       }
-    }, 1000);
+    }, 2000);
     
     
 

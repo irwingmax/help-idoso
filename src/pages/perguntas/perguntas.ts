@@ -23,11 +23,12 @@ export class PerguntasPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntasPage');
-    console.log(this.dados)
+    console.log(this.dados);
+    
   }
 
   tipoAjudaCall() {
-    this.navCtrl.push(TipoAjudaPage);
+    this.navCtrl.push(TipoAjudaPage, {dados: this.dados});
    }
 
 }

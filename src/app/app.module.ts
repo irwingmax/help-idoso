@@ -16,6 +16,7 @@ import { EnviocadastroProvider } from '../providers/enviocadastro/enviocadastro'
 import { HttpClientModule } from "@angular/common/http";
 import 'rxjs/add/operator/finally';
 import { ListaloginProvider } from '../providers/listalogin/listalogin';
+import { AcessoMensagemProvider } from '../providers/acesso-mensagem/acesso-mensagem';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ListaloginProvider } from '../providers/listalogin/listalogin';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     EnviocadastroProvider,
-    ListaloginProvider
+    ListaloginProvider,
+    AcessoMensagemProvider
   ]
 })
 export class AppModule {}
