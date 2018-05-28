@@ -17,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import 'rxjs/add/operator/finally';
 import { ListaloginProvider } from '../providers/listalogin/listalogin';
 import { AcessoMensagemProvider } from '../providers/acesso-mensagem/acesso-mensagem';
+import { ConsultaHistoricoProvider } from '../providers/consulta-historico/consulta-historico';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AcessoMensagemProvider } from '../providers/acesso-mensagem/acesso-mens
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     EnviocadastroProvider,
     ListaloginProvider,
-    AcessoMensagemProvider
+    AcessoMensagemProvider,
+    ConsultaHistoricoProvider
   ]
 })
 export class AppModule {}
