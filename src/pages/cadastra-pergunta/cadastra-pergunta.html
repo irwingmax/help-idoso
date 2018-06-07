@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cadastra-pergunta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <h2>Duvidas sobre {{tipo}}</h2>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea rows="10" placeholder="Escreva sua duvida em ate 350 caracteres" maxlength="350" #texto>  
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="enviaMensagem(texto.value)">
+        <ion-icon name="send"> </ion-icon>
+      </button>
+  </ion-fab>
+
+</ion-content>
