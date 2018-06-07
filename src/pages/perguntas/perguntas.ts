@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TipoAjudaPage } from '../tipo-ajuda/tipo-ajuda';
 //import { HistoricoPerguntasPage } from '../historico-perguntas/historico-perguntas';
 import { ConsultaHistoricoProvider } from '../../providers/consulta-historico/consulta-historico';
+import { HistoricoPerguntasPage } from '../historico-perguntas/historico-perguntas';
 
 
 
@@ -13,33 +14,45 @@ import { ConsultaHistoricoProvider } from '../../providers/consulta-historico/co
 })
 export class PerguntasPage {
   dados: any;
+  nome: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public con: ConsultaHistoricoProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public con: ConsultaHistoricoProvider, private load: LoadingController) {
     this.dados = navParams.get("dados");
+    let arrayNome: string[];
+    arrayNome = this.dados[0].nome.split(" ");
+    this.nome = arrayNome[0];
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntasPage');
-    console.log(this.dados);
+    
     
   }
-  
+
   tipoAjudaCall() {
     this.navCtrl.push(TipoAjudaPage, {dados: this.dados});
    }
 
   historicoCall(){
+    
+    let loading = this.load.create({
+      content: "Buscando Historico!"
+    });
+    loading.present();
     let cliente = this.dados;
     console.log(cliente)
-    
-   // let todasMensagens: any;
+  
     this.con.consulta(cliente).subscribe(
-      (lista) => console.log(lista),
+      (lista) => {
+        loading.dismiss();
+        this.navCtrl.push(HistoricoPerguntasPage.name, {perguntas: lista})
+      },
       (err) => console.log(err)
 
     )
     
-   // this.navCtrl.push(HistoricoPerguntasPage.name, {listaMensagens: todasMensagens} )
+   
     
   }
 

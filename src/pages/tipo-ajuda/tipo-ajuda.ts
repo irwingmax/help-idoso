@@ -25,7 +25,7 @@ dados: any;
 
   }
   cadastraCelular(){
-    let tipo = "Celular";
+    let tipo = "Telefone";
     this.navCtrl.push(CadastraPerguntaPage.name,{dados: this.dados,tipo: tipo});
   }
   cadastraComputador(){

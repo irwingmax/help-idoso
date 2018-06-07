@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ListaloginProvider } from '../../providers/listalogin/listalogin';
 import { Login } from '../../model/modeloLogin';
 import { PerguntasPage } from '../perguntas/perguntas';
@@ -19,11 +19,11 @@ import { PerguntasPage } from '../perguntas/perguntas';
   templateUrl: 'logar.html',
 })
 export class LogarPage {
-  dados: object;
+  dados: any = "erro";
   vlogin: boolean = false;
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private lg: ListaloginProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private lg: ListaloginProvider, private loadCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -31,6 +31,12 @@ export class LogarPage {
   }
 
   chamaLogin(login, senha){
+
+    let load = this.loadCtrl.create({
+      content: 'Verificando informações'
+    })
+
+    load.present();
       let prepEnvio: Login = {
         login: login,
         senha: senha
@@ -38,17 +44,31 @@ export class LogarPage {
 
     this.lg.verificaLogin(prepEnvio).
     subscribe(
-      (dad) => this.dados = dad,
+      (dad) =>{
+         this.dados = dad
+         
+        
+       
+         if(dad[0] != null){
+           load.dismiss();
+             this.navCtrl.setRoot(PerguntasPage, {dados: this.dados} );
+             console.log(dad)
+         }else{
+           this.vlogin = true;
+         }
+      },
+      
       (err) => console.log(err)
+      
     )
 
-    setTimeout( () => {
-      if(this.dados[0].email.length > 1){
-        this.navCtrl.setRoot(PerguntasPage, {dados: this.dados});
-      }else{
-        this.vlogin = true;
-      }
-    }, 2000);
+    // setTimeout( () => {
+      // if(this.dados[0].email.length > 1){
+      //   this.navCtrl.setRoot(PerguntasPage, {dados: this.dados});
+      // }else{
+      //   this.vlogin = true;
+      // }
+    // }, 3000);
     
     
 
