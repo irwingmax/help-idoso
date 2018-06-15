@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetalhePerguntaPage } from '../detalhe-pergunta/detalhe-pergunta';
 
 /**
  * Generated class for the HistoricoPerguntasPage page.
@@ -20,14 +21,11 @@ export class HistoricoPerguntasPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
       this.perguntas = this.navParams.get("perguntas");
       this.perguntas.map( elemento =>{
-        if(elemento.tipo == "C")
+        if(elemento.tipo == "T")
           elemento.tipo = "Celular";
         else
-        elemento.tipo = "Computador"; 
-
-      }
-        
-      )
+        elemento.tipo = "Computador";
+      })
   }
 
   ionViewDidLoad() {
@@ -35,7 +33,9 @@ export class HistoricoPerguntasPage {
     console.log(this.perguntas);
   }
 
-  chamaRespostas(pergunta){
+  detalharPergunta(pergunta){
+
+    this.navCtrl.push(DetalhePerguntaPage.name, {pergunta:pergunta})
     
   }
 

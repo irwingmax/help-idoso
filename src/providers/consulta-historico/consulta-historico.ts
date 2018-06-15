@@ -10,7 +10,7 @@ export class ConsultaHistoricoProvider {
   }
 
   consulta(dado){
-    return this.http.post('http://node-helpidoso-com.umbler.net/historico', dado);
+    return this.http.post('http://localhost:3000/historico', dado);
   }
 
 }

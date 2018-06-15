@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { LoginPage } from '../pages/login/login';
 import { LogarPage } from '../pages/logar/logar';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { TipoAjudaPage } from '../pages/tipo-ajuda/tipo-ajuda';
@@ -18,12 +17,12 @@ import 'rxjs/add/operator/finally';
 import { ListaloginProvider } from '../providers/listalogin/listalogin';
 import { AcessoMensagemProvider } from '../providers/acesso-mensagem/acesso-mensagem';
 import { ConsultaHistoricoProvider } from '../providers/consulta-historico/consulta-historico';
+import { AtualizaMensagemProvider } from '../providers/atualiza-mensagem/atualiza-mensagem';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
     LogarPage,
     PerguntasPage,
     TipoAjudaPage,
@@ -39,7 +38,6 @@ import { ConsultaHistoricoProvider } from '../providers/consulta-historico/consu
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
     LogarPage,
     PerguntasPage,
     TipoAjudaPage,
@@ -53,7 +51,8 @@ import { ConsultaHistoricoProvider } from '../providers/consulta-historico/consu
     EnviocadastroProvider,
     ListaloginProvider,
     AcessoMensagemProvider,
-    ConsultaHistoricoProvider
+    ConsultaHistoricoProvider,
+    AtualizaMensagemProvider
   ]
 })
 export class AppModule {}

@@ -54,6 +54,7 @@ export class LogarPage {
              this.navCtrl.setRoot(PerguntasPage, {dados: this.dados} );
              console.log(dad)
          }else{
+           load.dismiss();
            this.vlogin = true;
          }
       },
