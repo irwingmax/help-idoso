@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AtualizaMensagemProvider } from '../../providers/atualiza-mensagem/atualiza-mensagem';
+import { ListaRespostaPage } from '../lista-resposta/lista-resposta';
+import { RespostasProvider } from '../../providers/respostas/respostas';
 
 /**
  * Generated class for the DetalhePerguntaPage page.
@@ -19,7 +21,7 @@ export class DetalhePerguntaPage {
   resposta: any;
   corpoMensagem : string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private atualizaReq: AtualizaMensagemProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private atualizaReq: AtualizaMensagemProvider, private buscaRespostaProvider:RespostasProvider) {
     this.resposta = this.navParams.get("pergunta");
     this.corpoMensagem = this.resposta.corpo_mensagem;
     console.log(this.corpoMensagem)
@@ -43,7 +45,12 @@ export class DetalhePerguntaPage {
   }
 
   consultaResposta(){
-    console.log(this.resposta)
+   let id_mensagem = this.resposta
+    this.buscaRespostaProvider.buscaResposta(id_mensagem).subscribe(
+      (dados) => {this.navCtrl.push(ListaRespostaPage.name, {resposta: dados})},
+      (err) => {console.log(err)}
+    )
+    
   }
 
 }
