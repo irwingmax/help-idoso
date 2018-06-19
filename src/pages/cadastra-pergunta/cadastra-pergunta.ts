@@ -19,17 +19,29 @@ export class CadastraPerguntaPage {
   tipo: any;
   dados: any;
   mensagem: any;
-
+  gato: any;
+ 
   constructor(public navCtrl: NavController, public navParams: NavParams,private msg: AcessoMensagemProvider) {
 
     this.dados = navParams.get("dados");
     this.tipo = navParams.get("tipo");
+    this.gato = {
+        dados: [{ 
+          id_cliente: this.dados[0].id_cliente,
+          nome: this.dados[0].nome,
+          email: this.dados[0].email,
+          nascimento: this.dados[0].nascimento,
+          senha: this.dados[0].senha,
+          sexo: this.dados[0].sexo,
+        }]
+    }
+
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastraPerguntaPage');
-    console.log(this.tipo,this.dados);
+    console.log(this.dados)
   }
 
   enviaMensagem(mensagemView){
@@ -45,7 +57,8 @@ export class CadastraPerguntaPage {
     subscribe(
       (dad) => {
         console.log(dad),
-        this.navCtrl.setRoot(PerguntasPage, {dados: this.dados})
+        this.navCtrl.setRoot(PerguntasPage, {dados: this.gato},
+            )
       },
       (err) => console.log(err)
     )

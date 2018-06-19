@@ -17,8 +17,9 @@
 		</div>
 	</div>
 	<div class="questions">
-		<button ion-button full class="historico-perguntas" (click)="historicoCall()">HISTÓRICO DE PERGUNTAS</button>
-		<button ion-button full class="nova-pergunta" (click)="tipoAjudaCall()">NOVA PERGUNTA</button>
+		<button ion-button full class="historico-perguntas" *ngIf="user" (click)="historicoCall()">HISTÓRICO DE PERGUNTAS</button>
+		<button ion-button full class="nova-pergunta" *ngIf="user" (click)="tipoAjudaCall()">NOVA PERGUNTA</button>
+		<button ion-button full class="historico-perguntas" *ngIf="adm" (click)="responderDuvidas()">Dúvidas Disponíveis</button>
 	</div>
 	
 	<div class="edit-user">

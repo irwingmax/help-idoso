@@ -10,7 +10,7 @@ export class AcessoMensagemProvider {
   }
 
   enviaMensagem(dado){
-    return this.http.post('http://localhost:3000/mensagem', dado);
+    return this.http.post('http://node-helpidoso-com.umbler.netmensagem', dado);
     //http://node-helpidoso-com.umbler.net
   }
 

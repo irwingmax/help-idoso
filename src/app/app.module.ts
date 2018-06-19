@@ -19,6 +19,8 @@ import { AcessoMensagemProvider } from '../providers/acesso-mensagem/acesso-mens
 import { ConsultaHistoricoProvider } from '../providers/consulta-historico/consulta-historico';
 import { AtualizaMensagemProvider } from '../providers/atualiza-mensagem/atualiza-mensagem';
 import { RespostasProvider } from '../providers/respostas/respostas';
+import { ListaduvidasAdmProvider } from '../providers/listaduvidas-adm/listaduvidas-adm';
+import { EnviaRespostaProvider } from '../providers/envia-resposta/envia-resposta';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { RespostasProvider } from '../providers/respostas/respostas';
     AcessoMensagemProvider,
     ConsultaHistoricoProvider,
     AtualizaMensagemProvider,
-    RespostasProvider
+    RespostasProvider,
+    ListaduvidasAdmProvider,
+    EnviaRespostaProvider
   ]
 })
 export class AppModule {}

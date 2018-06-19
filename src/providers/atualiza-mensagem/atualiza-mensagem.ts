@@ -9,7 +9,7 @@ export class AtualizaMensagemProvider {
   }
 
   atualizaMsg(dados){
-   return this.http.post("http://localhost:3000/atualizaMensagem", dados);
+   return this.http.post("http://node-helpidoso-com.umbler.net/atualizaMensagem", dados);
   }
 
 }

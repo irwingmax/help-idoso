@@ -46,10 +46,8 @@ export class LogarPage {
     subscribe(
       (dad) =>{
          this.dados = dad
-         
-        
-       
-         if(dad[0] != null){
+         console.log(dad)
+         if(dad != null){
            load.dismiss();
              this.navCtrl.setRoot(PerguntasPage, {dados: this.dados} );
              console.log(dad)
@@ -63,13 +61,7 @@ export class LogarPage {
       
     )
 
-    // setTimeout( () => {
-      // if(this.dados[0].email.length > 1){
-      //   this.navCtrl.setRoot(PerguntasPage, {dados: this.dados});
-      // }else{
-      //   this.vlogin = true;
-      // }
-    // }, 3000);
+ 
     
     
 

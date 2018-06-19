@@ -16,9 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ListaRespostaPage {
 
   respostas: any[];
+  semResposta: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-   this.respostas =  this.navParams.get("resposta");
+
+   this.respostas = this.navParams.get("resposta");
+   console.log(this.respostas.length)
+   if(this.respostas.length < 1){
+     this.semResposta = true;
+   }
   }
 
   ionViewDidLoad() {

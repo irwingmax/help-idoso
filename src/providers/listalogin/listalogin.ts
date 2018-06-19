@@ -10,7 +10,7 @@ export class ListaloginProvider {
   }
 
 verificaLogin(login){
-  return this.http.post("http://localhost:3000/login",login);
+  return this.http.post("http://node-helpidoso-com.umbler.net/login",login);
 }
 
 }

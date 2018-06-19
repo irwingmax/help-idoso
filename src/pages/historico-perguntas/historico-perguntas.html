@@ -15,8 +15,8 @@
 
 <ion-content padding>
 
-  <ion-list >
-    <ion-item *ngFor="let pergunta of perguntas" (click)="detalharPergunta(pergunta)">
+  <ion-list *ngFor="let pergunta of perguntas" >
+    <ion-item text-wrap  (click)="detalharPergunta(pergunta)">
       <h2>Duvida sobre: {{pergunta.tipo}}</h2>
       <h3>{{pergunta.corpo_mensagem}}</h3>
     </ion-item>

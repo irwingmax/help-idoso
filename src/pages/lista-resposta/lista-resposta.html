@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let resposta of respostas">
+      {{resposta.msg_resposta}}<br>
+      <h3>Respondido por: {{resposta.nome_admin}}</h3>
+    </ion-item>
+  </ion-list>
+
+  <h1 *ngIf="semResposta">Estamos nos esforçando para responder todos, por favor, agurade!</h1>
 
 </ion-content>
