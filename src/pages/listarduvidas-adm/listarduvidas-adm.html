@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Lista de Dúvidas - ADM</ion-title>
+    <ion-title>Voltar</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,8 +17,8 @@
   
   <ion-list *ngFor="let duvida of duvidas">
     <ion-item text-wrap  (click)="chamaTelaResposta(duvida)">
-      <h2>duvida do(a): {{duvida.nome}}</h2>
-      <h2>Duvidas sobre: {{duvida.tipo}}</h2><hr>
+      <h2><span class="duvida">Dúvida do(a):</span> {{duvida.nome}}</h2>
+      <h2><span class="sobre">Sobre:</span> {{duvida.tipo}}</h2><hr>
       <p>{{ duvida.corpo_mensagem}}</p>
     </ion-item>
     

@@ -1,3 +1,20 @@
 page-listarduvidas-adm {
+	.toolbar-background-md{
+		background-color: transparent;
+	}
+	.toolbar-title{
+		color:#fff;
+		padding-left:0px;
+	}
+	.bar-button-default-md{
+		color: #fff;
+		margin-right:0px;
+		padding-right:0px;
+	}
 
+	.duvida,.sobre{
+		font-weight:600;
+		color:#4B0082;
+		font-size:18px;
+	}
 }
