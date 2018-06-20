@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { AcessoMensagemProvider } from '../../providers/acesso-mensagem/acesso-mensagem';
 import { PerguntasPage } from '../perguntas/perguntas';
 
@@ -21,19 +21,21 @@ export class CadastraPerguntaPage {
   mensagem: any;
   gato: any;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams,private msg: AcessoMensagemProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private msg: AcessoMensagemProvider, private alertCtrl: AlertController, private load: LoadingController) {
 
     this.dados = navParams.get("dados");
     this.tipo = navParams.get("tipo");
     this.gato = {
-        dados: [{ 
+        dados: [
+          { 
           id_cliente: this.dados[0].id_cliente,
           nome: this.dados[0].nome,
           email: this.dados[0].email,
           nascimento: this.dados[0].nascimento,
           senha: this.dados[0].senha,
           sexo: this.dados[0].sexo,
-        }]
+        }
+      ]
     }
 
 
@@ -46,7 +48,10 @@ export class CadastraPerguntaPage {
 
   enviaMensagem(mensagemView){
     let primeiraLetra: string = this.tipo;
-    
+    let ld = this.load.create({
+      content: "enviando, aguarde!",
+    })
+    ld.present();
     //console.log(mensagemView);
     let values = {
       id: this.dados[0].id_cliente,
@@ -56,12 +61,36 @@ export class CadastraPerguntaPage {
     this.msg.enviaMensagem(values).
     subscribe(
       (dad) => {
-        console.log(dad),
-        this.navCtrl.setRoot(PerguntasPage, {dados: this.gato},
-            )
+        ld.dismiss();
+        let Sucesso = "Cadastro enviado com sucesso!"
+       this.alertaFunction(Sucesso);
       },
-      (err) => console.log(err)
+      (err) =>{
+        ld.dismiss()
+        let falha = "Erro, tente novamente mais tarde!"
+       this.alertaFunction(falha);
+      }
     )
+    setTimeout( () =>{
+     ld.dismiss();
+    }, 5000)
+  }
+
+  private alertaFunction(textoAlerta){
+      let alerta = this.alertCtrl.create({
+      title: "Aviso!",
+      message: textoAlerta,
+      buttons: [
+        {
+          text: "ok",
+          handler: () => {
+            this.navCtrl.setRoot(PerguntasPage, {dados: this.gato})
+          }
+        }
+      ]
+     });
+
+     return alerta.present();
   }
 
 }

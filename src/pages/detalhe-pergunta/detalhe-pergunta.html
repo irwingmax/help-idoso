@@ -1,4 +1,12 @@
 
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Detalhes</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
 <ion-content padding>
 
   <ion-item>
@@ -8,8 +16,14 @@
   </ion-item>
 
   <ion-item>
-    <button ion-button (click)="consultaResposta()">Ver Respostas</button>
-    <button ion-button (click)="salvaAlteracao(texto.value)">Salvar Alteração</button>
+    <div class="meio">
+      <button ion-button (click)="consultaResposta()">Ver Respostas</button>
+      <button ion-button (click)="salvaAlteracao(texto.value)">Salvar Alteração</button>
+    </div>
   </ion-item>
+  <br>
+  <div  class="meio">
+    <button ion-button color="danger"  round (click)="finalizaPergunta()">Marcar como Solucionado</button>
+  </div>
 
 </ion-content>

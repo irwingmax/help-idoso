@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AtualizaMensagemProvider } from '../../providers/atualiza-mensagem/atualiza-mensagem';
 import { ListaRespostaPage } from '../lista-resposta/lista-resposta';
 import { RespostasProvider } from '../../providers/respostas/respostas';
+import { FinalizaPerguntaProvider } from '../../providers/finaliza-pergunta/finaliza-pergunta';
+
 
 /**
  * Generated class for the DetalhePerguntaPage page.
@@ -21,7 +23,8 @@ export class DetalhePerguntaPage {
   resposta: any;
   corpoMensagem : string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private atualizaReq: AtualizaMensagemProvider, private buscaRespostaProvider:RespostasProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private atualizaReq: AtualizaMensagemProvider, private buscaRespostaProvider:RespostasProvider,
+             private providerFinalizaP: FinalizaPerguntaProvider, private alert: AlertController) {
     this.resposta = this.navParams.get("pergunta");
     this.corpoMensagem = this.resposta.corpo_mensagem;
     console.log(this.corpoMensagem)
@@ -31,6 +34,7 @@ export class DetalhePerguntaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalhePerguntaPage');
+    console.log(this.resposta, this.corpoMensagem)
   }
 
   salvaAlteracao(msg){
@@ -51,6 +55,36 @@ export class DetalhePerguntaPage {
       (err) => {console.log(err)}
     )
     
+  }
+
+  finalizaPergunta(){
+   let alerta = this.alert.create({
+      title: "Confirmar Encerramento?",
+      message: "Confirmando isso sua pergunta não aparecerá em nossos sistemas!",
+      buttons:[
+        {
+          text: "Confirmar",
+          handler: () =>{
+            let dados ={
+              id_mensagem: this.resposta.id_mensagem
+            };
+            console.log(dados)
+            this.providerFinalizaP.finaliza(dados).
+              subscribe(
+                (dados) => {dados},
+                (err) => {err}
+              );
+          }
+        },
+        {
+          text: "Voltar",
+          handler: () => {
+            console.log("voltou")
+          }
+        }
+      ]
+    })
+    alerta.present();
   }
 
 }

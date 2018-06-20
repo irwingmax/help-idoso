@@ -19,9 +19,11 @@ export class PerguntasPage {
   nome: string;
   adm: boolean = false;
   user: boolean = false;
+  foto: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public con: ConsultaHistoricoProvider, private load: LoadingController, private listaDuvidasP: ListaduvidasAdmProvider) {
     this.dados = navParams.get("dados");
+    
     
     let arrayNome: string[] = this.dados.dados[0].nome.split(" ");
     this.nome = arrayNome[0];
@@ -32,13 +34,20 @@ export class PerguntasPage {
     if(!this.dados.adm){
       this.user = true
     }
-  
     
+    if (this.dados.dados[0].sexo == "m") {
+      console.log("homem")
+      this.foto = "../assets/imgs/icone_masculino.png"
+    }else{
+      console.log("mulher")
+      this.foto ="../assets/imgs/icone_feminino.png"
+    }
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntasPage');
+    console.log(this.dados)
     
     
   }
@@ -64,6 +73,10 @@ export class PerguntasPage {
       (err) => console.log(err)
 
     )
+
+    setTimeout(() => {
+      loading.dismiss();
+    }, 5000);
   }
 
   responderDuvidas(){

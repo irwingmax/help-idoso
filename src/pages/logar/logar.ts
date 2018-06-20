@@ -60,11 +60,9 @@ export class LogarPage {
       (err) => console.log(err)
       
     )
-
- 
-    
-    
-
+    setTimeout(() => {
+      load.dismiss()
+    }, 5000);
   
   }
 }

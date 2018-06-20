@@ -16,12 +16,25 @@ import { CadastraPerguntaPage } from '../cadastra-pergunta/cadastra-pergunta';
 })
 export class TipoAjudaPage {
 dados: any;
+nome: string;
+foto: string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.dados = navParams.get("dados");
+
+    let arrayNome: string[] = this.dados.dados[0].nome.split(" ");
+    this.nome = arrayNome[0];
+
+    if (this.dados[0].sexo == "m") {
+      this.foto = "../assets/imgs/icone_masculino.png"
+    }else{
+      this.foto ="../assets/imgs/icone_feminino.png"
+    }
+ 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TipoAjudaPage');
+    console.log(this.dados)
 
   }
   cadastraCelular(){
