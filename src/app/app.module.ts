@@ -6,8 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { LogarPage } from '../pages/logar/logar';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { TipoAjudaPage } from '../pages/tipo-ajuda/tipo-ajuda';
-import { TipoAjudaCelularPage } from '../pages/tipo-ajuda-celular/tipo-ajuda-celular';
-import { TipoAjudaComputadorPage } from '../pages/tipo-ajuda-computador/tipo-ajuda-computador';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -29,8 +27,6 @@ import { EnviaRespostaProvider } from '../providers/envia-resposta/envia-respost
     LogarPage,
     PerguntasPage,
     TipoAjudaPage,
-    TipoAjudaCelularPage,
-    TipoAjudaComputadorPage
   ],
   imports: [
     BrowserModule,
@@ -43,9 +39,7 @@ import { EnviaRespostaProvider } from '../providers/envia-resposta/envia-respost
     HomePage,
     LogarPage,
     PerguntasPage,
-    TipoAjudaPage,
-    TipoAjudaCelularPage,
-    TipoAjudaComputadorPage
+    TipoAjudaPage
   ],
   providers: [
     StatusBar,

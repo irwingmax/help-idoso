@@ -1,6 +1,15 @@
 page-tipo-ajuda {
+	.toolbar-background-md{
+		background-color: transparent;
+	}
+	.toolbar-title{
+		color:#fff;
+		padding-left:0px;
+	}
 	.bar-button-default-md{
-		color: #4B0082;
+		color: #fff;
+		margin-right:0px;
+		padding-right:0px;
 	}
 	.user-data{
 		margin: 0 auto;
@@ -14,7 +23,7 @@ page-tipo-ajuda {
 			display: inline-block;
 			text-align: center;
 			float:left;
-			font-size:16px;
+			font-size:20px;
 			margin-left:18px;
 			margin-top:7px;
 		}
@@ -37,18 +46,15 @@ page-tipo-ajuda {
 		width: 100%;
 		height: 300px;
 		text-align: center;
-		margin-top:150px;
-		h1{
-			padding: 16px;
-			font-size:20px;
-		}
+		margin-top:200px;
 		button{
 			color: #4B0082;
 			background: #fff;
 			margin-top:20px;
 			padding-top:30px;
 			padding-bottom:30px;
-			font-size:18px;
+			font-size:20px;
+			height:55px;
 		}
 	}
 
