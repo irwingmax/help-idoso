@@ -16,6 +16,12 @@ page-logar {
 		height: 300px;
 		text-align: center;
 
+		.item-input{
+			.label-md{
+				color:#fff!important;
+				font-size:17px;
+			}
+		}
 		.item-md{
 			background-color:transparent!important;
 			padding-right:16px;
@@ -24,6 +30,8 @@ page-logar {
 			margin-top:25px;
 			color: #4B0082;
 			background: #fff;
+			height: 55px;
+			font-size:20px;
 		}
 		.teste-icone{
 			margin-right: 5px;

@@ -15,7 +15,12 @@ ion-content{
 		text-align: center;
 		h1{
 			text-align: center;
-			font-size: 45px;
+			font-size: 62px;
+			margin-bottom:0px;
+		}
+		p{
+			font-size:18px;
+			margin-top: 0px;
 		}
 		.box-buttons{
 			bottom: 0;
@@ -24,6 +29,9 @@ ion-content{
 			button{
 				color: #4B0082;
 				background: #fff;
+				font-size:20px;
+				height:55px;
+				margin-top:15px;
 			}
 			.teste-icone{
 				margin-right: 5px;
