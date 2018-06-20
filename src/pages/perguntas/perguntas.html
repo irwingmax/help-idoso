@@ -9,16 +9,17 @@
 <ion-content padding>
 	<div class="user-data">
 		<div class="user">
-			<p>Jóse da Silva</p>
-			<p>55 anos</p>
+			<p>Bem Vindo(a) {{nome}}!</p>
+			
 		</div>
 		<div class="photo-user">
 			<img src="../../assets/imgs/icone_masculino.png" alt="" width="100" height="100">
 		</div>
 	</div>
 	<div class="questions">
-		<button ion-button full class="historico-perguntas">HISTÓRICO DE PERGUNTAS</button>
-		<button ion-button full class="nova-pergunta" (click)="tipoAjudaCall()">NOVA PERGUNTA</button>
+		<button ion-button full class="historico-perguntas" *ngIf="user" (click)="historicoCall()">HISTÓRICO DE PERGUNTAS</button>
+		<button ion-button full class="nova-pergunta" *ngIf="user" (click)="tipoAjudaCall()">NOVA PERGUNTA</button>
+		<button ion-button full class="historico-perguntas" *ngIf="adm" (click)="responderDuvidas()">Dúvidas Disponíveis</button>
 	</div>
 	
 	<div class="edit-user">

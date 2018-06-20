@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { ListaloginProvider } from '../../providers/listalogin/listalogin';
+import { Login } from '../../model/modeloLogin';
 import { PerguntasPage } from '../perguntas/perguntas';
+
+
 
 /**
  * Generated class for the LogarPage page.
@@ -15,16 +19,53 @@ import { PerguntasPage } from '../perguntas/perguntas';
   templateUrl: 'logar.html',
 })
 export class LogarPage {
+  dados: any = "erro";
+  vlogin: boolean = false;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private lg: ListaloginProvider, private loadCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogarPage');
   }
 
-   perguntasCall() {
-    this.navCtrl.push(PerguntasPage);
-   }
+  chamaLogin(login, senha){
 
+    let load = this.loadCtrl.create({
+      content: 'Verificando informações'
+    })
+
+    load.present();
+      let prepEnvio: Login = {
+        login: login,
+        senha: senha
+      }
+
+    this.lg.verificaLogin(prepEnvio).
+    subscribe(
+      (dad) =>{
+         this.dados = dad
+         console.log(dad)
+         if(dad != null){
+           load.dismiss();
+             this.navCtrl.setRoot(PerguntasPage, {dados: this.dados} );
+             console.log(dad)
+         }else{
+           load.dismiss();
+           this.vlogin = true;
+         }
+      },
+      
+      (err) => console.log(err)
+      
+    )
+
+ 
+    
+    
+
+  
+  }
 }
+

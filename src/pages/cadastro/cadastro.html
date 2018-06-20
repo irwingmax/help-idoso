@@ -14,36 +14,45 @@
 
 
 <ion-content padding>
-		 <ion-item>
-		   <ion-label floating>Nome</ion-label>
-		   <ion-input type="text" value=""></ion-input>
-		 </ion-item>
-		 <ion-item>
-		   <ion-label floating>Sobrenome</ion-label>
-		   <ion-input type="text"></ion-input>
-		</ion-item>
-		<ion-item>
-		   <ion-label floating>Data</ion-label>
-		     <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
-		</ion-item>
-		<ion-item>
-		   	<ion-label>Gênero</ion-label>
-		    <ion-select [(ngModel)]="genero">
-		      <ion-option value="M">Masculino</ion-option>
-		      <ion-option value="F">Feminino</ion-option>
-		  	</ion-select>	
-		</ion-item>
-		<ion-item>
-		   <ion-label floating>Usuário</ion-label>
-		   <ion-input type="text" value=""></ion-input>
-		 </ion-item>
-		 <ion-item>
-		   <ion-label floating>Senha</ion-label>
-		   <ion-input type="password"></ion-input>
-		</ion-item>
-		<ion-item>
-		   <ion-label floating>Digite a senha novamente</ion-label>
-		   <ion-input type="password"></ion-input>
-		</ion-item>
-		<button ion-button full ><ion-icon name="person-add" class="teste-icone"></ion-icon> FINALIZAR CADASTRO </button>
+    <form (ngSubmit)="enviaCadastro()" #form="ngForm" [formGroup]="formulario">
+
+        <ion-item>
+          <ion-label stacked>Nome:</ion-label>
+          <ion-input type="text" [(ngModel)]="nome" name="nome" formControlName="nome"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label stacked>E-mail:</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email" formControlName="email"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label stacked>Sexo:</ion-label>
+            <ion-select [(ngModel)]="sexo" name="sexo" formControlName="sexo">
+              <ion-option value="m">Masculino</ion-option>
+              <ion-option value="f">Feminino</ion-option>
+            </ion-select>
+         </ion-item>
+    
+        <ion-item>
+            <ion-label stacked>Nascimento:</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="nascimento" name="nascimento" formControlName="nascimento"></ion-datetime>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label stacked>Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="senha" name="senha" formControlName="senha"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label stacked>Confirmar Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="confirmPass" name="confirmPass" formControlName="confirmPass"></ion-input>
+        </ion-item>
+
+      </form>
+      <span *ngIf="form.invalid">
+        <span *ngFor="let erro of arrayErros">{{erro}} <br> </span>
+      </span>
+
+      <button ion-button full (click)="form.ngSubmit.emit()">Cadastrar</button>
 </ion-content>

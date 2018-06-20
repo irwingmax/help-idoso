@@ -13,11 +13,11 @@ export class HomePage {
 
   }
 
-  loginCall() {
+
+  chamaCadastro(){
+    this.navCtrl.push(CadastroPage.name);
+  }
+  chamaLogar(){
     this.navCtrl.push(LogarPage);
   }
-  cadastroCall() {
-    this.navCtrl.push(CadastroPage);
-  }
-
 }

@@ -3,42 +3,46 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { LoginPage } from '../pages/login/login';
 import { LogarPage } from '../pages/logar/logar';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
-import { CadastroPage } from '../pages/cadastro/cadastro';
 import { TipoAjudaPage } from '../pages/tipo-ajuda/tipo-ajuda';
 import { TipoAjudaCelularPage } from '../pages/tipo-ajuda-celular/tipo-ajuda-celular';
 import { TipoAjudaComputadorPage } from '../pages/tipo-ajuda-computador/tipo-ajuda-computador';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { EnviocadastroProvider } from '../providers/enviocadastro/enviocadastro';
+import { HttpClientModule } from "@angular/common/http";
+import 'rxjs/add/operator/finally';
+import { ListaloginProvider } from '../providers/listalogin/listalogin';
+import { AcessoMensagemProvider } from '../providers/acesso-mensagem/acesso-mensagem';
+import { ConsultaHistoricoProvider } from '../providers/consulta-historico/consulta-historico';
+import { AtualizaMensagemProvider } from '../providers/atualiza-mensagem/atualiza-mensagem';
+import { RespostasProvider } from '../providers/respostas/respostas';
+import { ListaduvidasAdmProvider } from '../providers/listaduvidas-adm/listaduvidas-adm';
+import { EnviaRespostaProvider } from '../providers/envia-resposta/envia-resposta';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
     LogarPage,
     PerguntasPage,
-    CadastroPage,
     TipoAjudaPage,
     TipoAjudaCelularPage,
     TipoAjudaComputadorPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
-
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
     LogarPage,
     PerguntasPage,
-    CadastroPage,
     TipoAjudaPage,
     TipoAjudaCelularPage,
     TipoAjudaComputadorPage
@@ -46,7 +50,15 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    EnviocadastroProvider,
+    ListaloginProvider,
+    AcessoMensagemProvider,
+    ConsultaHistoricoProvider,
+    AtualizaMensagemProvider,
+    RespostasProvider,
+    ListaduvidasAdmProvider,
+    EnviaRespostaProvider
   ]
 })
 export class AppModule {}

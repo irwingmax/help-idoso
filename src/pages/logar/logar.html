@@ -15,15 +15,22 @@
 
 <ion-content padding>
 	<div class="center-div">
+		
 		 <ion-item>
-		   <ion-label floating>Usuário</ion-label>
-		   <ion-input type="text" value=""></ion-input>
-		 </ion-item>
-		 <ion-item>
-		   <ion-label floating>Senha</ion-label>
-		   <ion-input type="password"></ion-input>
-		</ion-item>
-		<button ion-button full (click)="perguntasCall()"><ion-icon name="person-add" class="teste-icone"></ion-icon> ENTRAR </button>
+
+				 <ion-label floating>Usuario</ion-label>
+				 <ion-input type="text" #login></ion-input>
+			 </ion-item>
+			 <ion-item>
+				 <ion-label floating>Senha</ion-label>
+				 <ion-input type="password" #senha></ion-input>
+				</ion-item>
+				<h3 *ngIf="vlogin">Login ou senha Invalido</h3>
+			 
+		<button ion-button full  (click)="chamaLogin(login.value, senha.value)" >
+			<ion-icon name="person-add" class="teste-icone"></ion-icon>
+			 ENTRAR
+		</button>
 	</div>
 	
 </ion-content>
