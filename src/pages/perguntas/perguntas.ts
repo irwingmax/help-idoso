@@ -64,9 +64,6 @@ export class PerguntasPage {
       (err) => console.log(err)
 
     )
-    
-   
-    
   }
 
   responderDuvidas(){

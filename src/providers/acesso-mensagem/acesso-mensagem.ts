@@ -10,7 +10,7 @@ export class AcessoMensagemProvider {
   }
 
   enviaMensagem(dado){
-    return this.http.post('http://node-helpidoso-com.umbler.netmensagem', dado);
+    return this.http.post('http://node-helpidoso-com.umbler.net/mensagem', dado);
     //http://node-helpidoso-com.umbler.net
   }
 

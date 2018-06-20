@@ -12,7 +12,7 @@ export class EnviocadastroProvider {
 
   cadastro_node(dados){
     
-   return this.http.post("http://localhost:3000/cadastro",dados);
+   return this.http.post("http://node-helpidoso-com.umbler.net/cadastro",dados);
   }
 
 }
