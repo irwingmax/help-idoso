@@ -25,7 +25,7 @@
 	
 	<div class="edit-user">
 		<div class="edit">
-			<button ion-button full (click)="alterarDados()">Alterar Dados</button>
+			<button *ngIf="admFoto" ion-button full (click)="alterarDados()">Alterar Dados</button>
 		</div>
 	</div>
 
