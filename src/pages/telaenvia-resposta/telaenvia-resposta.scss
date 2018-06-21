@@ -1,3 +1,32 @@
 page-telaenvia-resposta {
+	.toolbar-background-md{
+		background-color: transparent;
+	}
+	.toolbar-title{
+		color:#fff;
+		padding-left:0px;
+	}
+	.bar-button-default-md{
+		color: #fff;
+		margin-right:0px;
+		padding-right:0px;
+	}
+	.header-md{
+		&:after{
+			background-image:none;
+		}
+	}
 
+	.duvida,.sobre{
+		font-weight:600;
+		color:#4B0082;
+		font-size:18px;
+	}
+
+	.button-full-md{
+		background-color: #fff!important;
+		color: #4B0082!important;
+		font-size:18px!important;
+		height:55px!important;
+	}
 }
