@@ -37,10 +37,10 @@ export class PerguntasPage {
     
     if (this.dados.dados[0].sexo == "m") {
       console.log("homem")
-      this.foto = "../assets/imgs/icone_masculino.png"
+      this.foto = "./assets/imgs/icone_masculino.png"
     }else{
       console.log("mulher")
-      this.foto ="../assets/imgs/icone_feminino.png"
+      this.foto ="./assets/imgs/icone_feminino.png"
     }
 
   }
