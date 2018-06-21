@@ -21,7 +21,8 @@ import { PerguntasPage } from '../perguntas/perguntas';
 export class LogarPage {
   dados: any = "erro";
   vlogin: boolean = false;
-  
+  vbanco: boolean = false;
+  errCon: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private lg: ListaloginProvider, private loadCtrl: LoadingController) {
   }
@@ -31,6 +32,7 @@ export class LogarPage {
   }
 
   chamaLogin(login, senha){
+    this.errCon = false;
 
     let load = this.loadCtrl.create({
       content: 'Verificando informações'
@@ -46,14 +48,16 @@ export class LogarPage {
     subscribe(
       (dad) =>{
          this.dados = dad
-         console.log(dad)
-         if(dad != null){
+         if(this.dados.dados != "" ){
            load.dismiss();
+           this.errCon = false;
              this.navCtrl.setRoot(PerguntasPage, {dados: this.dados} );
-             console.log(dad)
+             
          }else{
+           console.log('aqui')
            load.dismiss();
            this.vlogin = true;
+           this.errCon = false;
          }
       },
       
@@ -61,7 +65,10 @@ export class LogarPage {
       
     )
     setTimeout(() => {
-      load.dismiss()
+      load.dismiss();
+      if(this.errCon){
+        this.vbanco = true;
+      }
     }, 5000);
   
   }

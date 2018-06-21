@@ -17,7 +17,8 @@
 		<ion-label floating>Senha</ion-label>
 			<ion-input type="password" #senha></ion-input>
 		</ion-item>
-		<h3 *ngIf="vlogin">Login ou senha Invalido</h3>
+		<h3 *ngIf="vlogin">Login ou senha Inválido</h3>
+		<h3 *ngIf="vbanco">Erro ao conectar no Sistema</h3>
 			 
 		<button ion-button full  (click)="chamaLogin(login.value, senha.value)" >
 			<ion-icon name="person-add" class="teste-icone"></ion-icon>

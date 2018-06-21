@@ -6,6 +6,7 @@ import { ConsultaHistoricoProvider } from '../../providers/consulta-historico/co
 import { HistoricoPerguntasPage } from '../historico-perguntas/historico-perguntas';
 import { ListarduvidasAdmPage } from '../listarduvidas-adm/listarduvidas-adm';
 import { ListaduvidasAdmProvider } from '../../providers/listaduvidas-adm/listaduvidas-adm';
+import { AlterarDadosPage } from '../alterar-dados/alterar-dados';
 
 
 
@@ -20,6 +21,8 @@ export class PerguntasPage {
   adm: boolean = false;
   user: boolean = false;
   foto: string;
+  saudacao: string;
+  admFoto: boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public con: ConsultaHistoricoProvider, private load: LoadingController, private listaDuvidasP: ListaduvidasAdmProvider) {
     this.dados = navParams.get("dados");
@@ -28,19 +31,22 @@ export class PerguntasPage {
     let arrayNome: string[] = this.dados.dados[0].nome.split(" ");
     this.nome = arrayNome[0];
 
+    
+    console.log(this.dados)
+    if (this.dados.dados[0].sexo == "m") {
+      this.saudacao = 'Bem vindo!';
+      this.foto = "./assets/imgs/icone_masculino.png"
+    }else{
+      this.saudacao = 'Bem vinda!';
+      this.foto ="./assets/imgs/icone_feminino.png"
+    }
     if(this.dados.adm){
       this.adm = true;
+      this.admFoto = false;
+      this.saudacao = 'Bem vindo!';
     }
     if(!this.dados.adm){
       this.user = true
-    }
-    
-    if (this.dados.dados[0].sexo == "m") {
-      console.log("homem")
-      this.foto = "./assets/imgs/icone_masculino.png"
-    }else{
-      console.log("mulher")
-      this.foto ="./assets/imgs/icone_feminino.png"
     }
 
   }
@@ -68,7 +74,7 @@ export class PerguntasPage {
     this.con.consulta(cliente).subscribe(
       (lista) => {
         loading.dismiss();
-        this.navCtrl.push(HistoricoPerguntasPage.name, {perguntas: lista})
+        this.navCtrl.push(HistoricoPerguntasPage.name, {perguntas: lista, dados: this.dados})
       },
       (err) => console.log(err)
 
@@ -86,6 +92,9 @@ export class PerguntasPage {
       (err) => {console.log(err)}
     )
     
+  }
+  alterarDados(){
+    this.navCtrl.push(AlterarDadosPage.name, {dados: this.dados})
   }
 
 }

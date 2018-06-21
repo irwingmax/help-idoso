@@ -19,7 +19,7 @@
 			<p>{{nome}}</p>
 		</div>
 		<div class="photo-user">
-			<img [src]="foto" alt="" width="100" height="100">
+			<img *ngIf="admFoto" [src]="foto" alt="" width="100" height="100">
 		</div>
 	</div>
 	<div class="questions">

@@ -17,6 +17,7 @@ import { DetalhePerguntaPage } from '../detalhe-pergunta/detalhe-pergunta';
 export class HistoricoPerguntasPage {
 
    perguntas: any[];
+   dados;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
       this.perguntas = this.navParams.get("perguntas");
@@ -26,16 +27,17 @@ export class HistoricoPerguntasPage {
         else
         elemento.tipo = "Computador";
       })
+      this.dados = this.navParams.get("dados")
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistoricoPerguntasPage');
-    console.log(this.perguntas);
+    console.log(this.dados);
   }
 
   detalharPergunta(pergunta){
 
-    this.navCtrl.push(DetalhePerguntaPage.name, {pergunta:pergunta})
+    this.navCtrl.push(DetalhePerguntaPage.name, {pergunta:pergunta, dados:this.dados})
     
   }
 

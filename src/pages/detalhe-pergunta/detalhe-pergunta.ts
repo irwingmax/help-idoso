@@ -4,6 +4,7 @@ import { AtualizaMensagemProvider } from '../../providers/atualiza-mensagem/atua
 import { ListaRespostaPage } from '../lista-resposta/lista-resposta';
 import { RespostasProvider } from '../../providers/respostas/respostas';
 import { FinalizaPerguntaProvider } from '../../providers/finaliza-pergunta/finaliza-pergunta';
+import { PerguntasPage } from '../perguntas/perguntas';
 
 
 /**
@@ -22,19 +23,21 @@ export class DetalhePerguntaPage {
 
   resposta: any;
   corpoMensagem : string;
+  dados;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private atualizaReq: AtualizaMensagemProvider, private buscaRespostaProvider:RespostasProvider,
              private providerFinalizaP: FinalizaPerguntaProvider, private alert: AlertController) {
     this.resposta = this.navParams.get("pergunta");
     this.corpoMensagem = this.resposta.corpo_mensagem;
-    console.log(this.corpoMensagem)
+    console.log(this.corpoMensagem);
+
    
-    
+    this.dados = this.navParams.get('dados');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetalhePerguntaPage');
-    console.log(this.resposta, this.corpoMensagem)
+    console.log(this.resposta)
   }
 
   salvaAlteracao(msg){
@@ -43,7 +46,9 @@ export class DetalhePerguntaPage {
       mensagem: msg
     };
     this.atualizaReq.atualizaMsg(dados).subscribe(
-      (sucesso)=>{console.log(sucesso)},
+      (sucesso)=>{console.log(sucesso)
+      
+      },
       (err)=>{console.log(err)}
     )
   }
@@ -74,6 +79,7 @@ export class DetalhePerguntaPage {
                 (dados) => {dados},
                 (err) => {err}
               );
+              this.navCtrl.setRoot(PerguntasPage, {dados: this.dados})
           }
         },
         {

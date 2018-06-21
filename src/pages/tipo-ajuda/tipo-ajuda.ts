@@ -18,6 +18,7 @@ export class TipoAjudaPage {
 dados: any;
 nome: string;
 foto: string;
+admFoto: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.dados = navParams.get("dados");
 
@@ -29,8 +30,15 @@ foto: string;
     }else{
       this.foto ="./assets/imgs/icone_feminino.png"
     }
+    if(this.dados.adm){
+      
+      this.admFoto = false;
+     
+    }
+   
  
   }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TipoAjudaPage');

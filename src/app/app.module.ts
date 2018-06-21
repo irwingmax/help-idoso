@@ -20,6 +20,7 @@ import { RespostasProvider } from '../providers/respostas/respostas';
 import { ListaduvidasAdmProvider } from '../providers/listaduvidas-adm/listaduvidas-adm';
 import { EnviaRespostaProvider } from '../providers/envia-resposta/envia-resposta';
 import { FinalizaPerguntaProvider } from '../providers/finaliza-pergunta/finaliza-pergunta';
+import { AlteracaoDadosProvider } from '../providers/alteracao-dados/alteracao-dados';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { FinalizaPerguntaProvider } from '../providers/finaliza-pergunta/finaliz
     RespostasProvider,
     ListaduvidasAdmProvider,
     EnviaRespostaProvider,
-    FinalizaPerguntaProvider
+    FinalizaPerguntaProvider,
+    AlteracaoDadosProvider
   ]
 })
 export class AppModule {}
