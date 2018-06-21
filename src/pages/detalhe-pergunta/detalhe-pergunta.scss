@@ -1,5 +1,39 @@
 page-detalhe-pergunta {
-.meio{
-    text-align: center;
-}
+
+	.meio{
+    	text-align: center;
+	}
+
+	.toolbar-background-md{
+		background-color: transparent;
+	}
+	.toolbar-title{
+		color:#fff;
+		padding-left:0px;
+	}
+	.bar-button-default-md{
+		color: #fff;
+		margin-right:0px;
+		padding-right:0px;
+	}
+	.header-md{
+		&:after{
+			background-image:none;
+		}
+	}
+
+	.button-full-md{
+		background-color: #fff!important;
+		color: #4B0082!important;
+		font-size:18px!important;
+		height:55px!important;
+	}
+
+	.button-md{
+		background-color: #4B0082;
+		color: #fff;
+		font-size:16px;
+		height:40px;
+	}
+
 }

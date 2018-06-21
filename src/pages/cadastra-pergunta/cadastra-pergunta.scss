@@ -11,10 +11,26 @@ page-cadastra-pergunta {
 		margin-right:0px;
 		padding-right:0px;
 	}
+	.header-md{
+		&:after{
+			background-image:none;
+		}
+	}
 	.item-md{
 		h2{
 			color: #4B0082!important;
 			font-size:18px;
+		}
+	}
+
+	.fab-md-primary{
+		color: #4B0082!important;
+		background-color:#fff!important;
+	}
+
+	.fab{
+		ion-icon{
+			font-size:32px;
 		}
 	}
 }

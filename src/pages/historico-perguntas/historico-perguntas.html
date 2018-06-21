@@ -17,7 +17,7 @@
 
   <ion-list *ngFor="let pergunta of perguntas" >
     <ion-item text-wrap  (click)="detalharPergunta(pergunta)">
-      <h2>Duvida sobre: {{pergunta.tipo}}</h2>
+      <h2><span class="duvida">Dúvida sobre:</span> {{pergunta.tipo}}</h2>
       <h3>{{pergunta.corpo_mensagem}}</h3>
     </ion-item>
 

@@ -11,7 +11,11 @@ page-listarduvidas-adm {
 		margin-right:0px;
 		padding-right:0px;
 	}
-
+	.header-md{
+		&:after{
+			background-image:none;
+		}
+	}
 	.duvida,.sobre{
 		font-weight:600;
 		color:#4B0082;

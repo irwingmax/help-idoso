@@ -1,16 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Voltar</ion-title>
+  </ion-navbar>
+
+</ion-header>
 <ion-content padding>
 	<div class="center-div">
 		
 		 <ion-item>
 
-				 <ion-label floating>Usuario</ion-label>
+			<ion-label floating>Usuário</ion-label>
 				 <ion-input type="text" #login></ion-input>
 			 </ion-item>
-			 <ion-item>
-				 <ion-label floating>Senha</ion-label>
-				 <ion-input type="password" #senha></ion-input>
-				</ion-item>
-				<h3 *ngIf="vlogin">Login ou senha Invalido</h3>
+		<ion-item>
+		<ion-label floating>Senha</ion-label>
+			<ion-input type="password" #senha></ion-input>
+		</ion-item>
+		<h3 *ngIf="vlogin">Login ou senha Invalido</h3>
 			 
 		<button ion-button full  (click)="chamaLogin(login.value, senha.value)" >
 			<ion-icon name="person-add" class="teste-icone"></ion-icon>

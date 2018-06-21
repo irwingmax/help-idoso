@@ -1,9 +1,20 @@
 page-logar {
-	.bar-button-default-md{
-		color: #4B0082;
+	.toolbar-background-md{
+		background-color: transparent;
 	}
-	.toolbar-title-md{
-		color: #4B0082;
+	.toolbar-title{
+		color:#fff;
+		padding-left:0px;
+	}
+	.bar-button-default-md{
+		color: #fff;
+		margin-right:0px;
+		padding-right:0px;
+	}
+	.header-md{
+		&:after{
+			background-image:none;
+		}
 	}
 	.center-div{
 		position: absolute;
